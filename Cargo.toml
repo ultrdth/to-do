@@ -1,0 +1,50 @@
+[package]
+name = "todo"
+version = "2.0.0"
+edition = "2021"
+authors = ["Your Name <email@example.com>"]
+description = "A powerful CLI todo manager for Linux"
+repository = "https://github.com/yourusername/task-master"
+license = "MIT"
+keywords = ["todo", "cli", "task", "manager", "tui"]
+categories = ["command-line-utilities"]
+
+[[bin]]
+name = "todo"
+path = "src/main.rs"
+
+[dependencies]
+# Database
+rusqlite = { version = "0.30", features = ["bundled", "chrono"] }
+
+# CLI
+clap = { version = "4.4", features = ["derive"] }
+
+# Terminal UI
+ratatui = { version = "0.27", features = ["serde"] }
+crossterm = { version = "0.27", features = ["serde"] }
+
+# Colors & Styling
+colored = "2.1"
+
+# Date/Time
+chrono = { version = "0.4", features = ["serde"] }
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[dev-dependencies]
+tempfile = "3.8"
+
+[profile.release]
+opt-level = 3
+lto = true
+strip = true
+codegen-units = 1
+
+[profile.dev]
+opt-level = 0
+
+[profile.test]
+opt-level = 2
