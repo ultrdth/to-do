@@ -1,6 +1,3 @@
-Here is the plain text version of your `README.md`. You can copy everything inside the code block below:
-
-```text
 # 📋 Task Master - Advanced CLI Todo Manager
 
 > A powerful, fast, and beautiful CLI todo/task manager for Linux built with Rust and SQLite.
