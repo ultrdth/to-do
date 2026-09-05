@@ -370,6 +370,12 @@ cargo build --release
 
 **Enjoy your new powerful task management system!** 🚀
 
+
+
 ---
 
 **Questions?** Check the README.md and IMPROVEMENTS.md for detailed information.
+
+---
+
+[I deleted the previous build, so i re-uploaded it]
