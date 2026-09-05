@@ -43,13 +43,11 @@
 
 ### Build from Source
 
-```bash
-# Clone the repository
 ### Build from Source
 
 ```bash
 # Clone the repository
-git clone [https://github.com/ultrdth/to-do.git](https://github.com/ultrdth/to-do.git)
+git clone https://github.com/ultrdth/to-do.git
 cd to-do
 
 # Build the project
