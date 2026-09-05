@@ -1,3 +1,6 @@
+Here is the plain text version of your `README.md`. You can copy everything inside the code block below:
+
+```text
 # 📋 Task Master - Advanced CLI Todo Manager
 
 > A powerful, fast, and beautiful CLI todo/task manager for Linux built with Rust and SQLite.
@@ -43,17 +46,16 @@
 
 ### Build from Source
 
-### Build from Source
-
 ```bash
 # Clone the repository
-git clone https://github.com/ultrdth/to-do.git
+git clone [https://github.com/ultrdth/to-do.git](https://github.com/ultrdth/to-do.git)
 cd to-do
 
 # Build the project
 cargo build --release
 
 # The binary will be at: target/release/todo
+
 ```
 
 ### Install to PATH
@@ -64,6 +66,7 @@ sudo mv target/release/todo /usr/local/bin/
 
 # Option 2: Add to PATH in ~/.bashrc or ~/.zshrc
 export PATH="$PATH:$(pwd)/target/release"
+
 ```
 
 ## 🚀 Usage
@@ -75,28 +78,32 @@ export PATH="$PATH:$(pwd)/target/release"
 ```bash
 todo              # Launch TUI
 todo -i           # Alternative: use --interactive flag
+
 ```
 
 ### Keyboard Shortcuts
 
 #### Navigation
+
 | Key | Action |
-|-----|--------|
+| --- | --- |
 | `↑` / `↓` | Navigate tasks |
 | `Enter` | View full task details |
 | `Esc` | Back to list |
 
 #### Task Management
+
 | Key | Action |
-|-----|--------|
+| --- | --- |
 | `n` | Add new task |
 | `e` | Edit task |
 | `Space` | Toggle task completion |
 | `d` | Delete task |
 
 #### Filtering & Views
+
 | Key | Action |
-|-----|--------|
+| --- | --- |
 | `0` | Show all tasks |
 | `1` | Show pending tasks only |
 | `2` | Show completed tasks |
@@ -105,8 +112,9 @@ todo -i           # Alternative: use --interactive flag
 | `/` | Search tasks |
 
 #### Other
+
 | Key | Action |
-|-----|--------|
+| --- | --- |
 | `s` | View statistics 📊 |
 | `?` | Show help |
 | `q` | Quit |
@@ -125,7 +133,7 @@ todo add "Buy groceries"
 todo add "Finish project" \
   -d "Complete the REST API implementation" \
   -p 3 \
-  --due 2024-12-25 \
+  --due 2026-12-25 \
   -c "Work"
 
 # Arguments:
@@ -134,6 +142,7 @@ todo add "Finish project" \
 # -p, --priority     1=Low, 2=Medium, 3=High (default: 2)
 # --due              Due date (YYYY-MM-DD format)
 # -c, --category     Task category
+
 ```
 
 #### List Tasks
@@ -153,18 +162,21 @@ todo list --priority 3  # Only high priority
 
 # Filter by category
 todo list --category Work
+
 ```
 
 #### Complete a Task
 
 ```bash
 todo complete 1  # Mark task ID 1 as complete
+
 ```
 
 #### Delete a Task
 
 ```bash
 todo delete 1  # Delete task ID 1
+
 ```
 
 #### Edit a Task
@@ -178,20 +190,23 @@ todo edit 1 \
   --title "New title" \
   -d "New description" \
   -p 3 \
-  --due 2024-12-31 \
+  --due 2026-12-31 \
   -c "Personal"
+
 ```
 
 #### View Statistics
 
 ```bash
 todo stats  # Show completion rate, overdue count, etc.
+
 ```
 
 #### Show Overdue Tasks
 
 ```bash
 todo overdue  # Display all overdue tasks with warnings
+
 ```
 
 #### Custom Database Location
@@ -199,6 +214,7 @@ todo overdue  # Display all overdue tasks with warnings
 ```bash
 todo --db /path/to/custom.db list
 todo --db ~/my-todos.db add "Task"
+
 ```
 
 ## 📊 Database Schema
@@ -218,37 +234,42 @@ CREATE TABLE tasks (
     category TEXT,
     tags TEXT  -- comma-separated tags
 );
+
 ```
 
 **Indexes:**
-- `idx_completed` - Fast filtering by completion status
-- `idx_priority` - Fast filtering by priority
-- `idx_due_date` - Fast sorting/filtering by due date
-- `idx_category` - Fast category filtering
+
+* `idx_completed` - Fast filtering by completion status
+* `idx_priority` - Fast filtering by priority
+* `idx_due_date` - Fast sorting/filtering by due date
+* `idx_category` - Fast category filtering
 
 ## 🎨 Visual Indicators
 
 ### Priority Emojis
-- 🟢 Low
-- 🟡 Medium
-- 🔴 High
+
+* 🟢 Low
+* 🟡 Medium
+* 🔴 High
 
 ### Status Indicators
-- `●` Pending task
-- `✓` Completed task
-- `⚠` Overdue task
-- `○` In list view
+
+* `●` Pending task
+* `✓` Completed task
+* `⚠` Overdue task
+* `○` In list view
 
 ### Due Date Display
-- `Today` - Due today
-- `Tomorrow` - Due tomorrow
-- `In N days` - Future date
-- `N days ago` - Overdue (shown in red)
+
+* `Today` - Due today
+* `Tomorrow` - Due tomorrow
+* `In N days` - Future date
+* `N days ago` - Overdue (shown in red)
 
 ## 📁 Project Structure
 
 ```
-task-master/
+to-do/
 ├── src/
 │   ├── main.rs       # CLI parsing & entry point
 │   ├── db.rs         # SQLite database operations
@@ -258,6 +279,7 @@ task-master/
 ├── Cargo.toml        # Dependencies
 ├── Cargo.lock        # Locked versions
 └── README.md         # This file
+
 ```
 
 ## 📦 Dependencies
@@ -268,17 +290,20 @@ rusqlite = "0.30"      # SQLite bindings
 clap = "4.4"          # CLI argument parsing
 colored = "2.1"       # Terminal colors
 chrono = "0.4"        # Date/time handling
-serde = "1.0"         # Serialization
+serde = "1.0"          # Serialization
 ratatui = "0.27"      # TUI framework
 crossterm = "0.27"    # Terminal control
 dirs = "5.0"          # Directory utilities
+
 ```
 
 ## 🔧 Configuration
 
 The default database location is:
+
 ```
 ~/.local/share/todo/tasks.db
+
 ```
 
 This directory is created automatically if it doesn't exist.
@@ -286,9 +311,11 @@ This directory is created automatically if it doesn't exist.
 ### Custom Database
 
 You can use any location by passing `--db` flag:
+
 ```bash
 export TODO_DB=/tmp/my-tasks.db
 todo --db $TODO_DB list
+
 ```
 
 ## 🎯 Workflow Examples
@@ -298,7 +325,7 @@ todo --db $TODO_DB list
 ```bash
 # Add some tasks
 todo add "Learn Rust" -p 2
-todo add "Build project" -p 3 --due 2024-12-31 -c Work
+todo add "Build project" -p 3 --due 2026-12-31 -c Work
 todo add "Read documentation" -d "Read The Rust Book" -c Learning
 
 # View all tasks
@@ -306,6 +333,7 @@ todo list
 
 # Launch interactive mode
 todo
+
 ```
 
 ### Daily Workflow
@@ -322,6 +350,7 @@ todo stats
 
 # Check overdue tasks
 todo overdue
+
 ```
 
 ### Project Management
@@ -331,29 +360,30 @@ todo overdue
 todo list --category Work
 
 # Add sprint task with due date
-todo add "API endpoint" -p 3 --due 2024-12-22 -c Work
+todo add "API endpoint" -p 3 --due 2026-12-22 -c Work
 
 # Mark as complete
 todo complete 8
 
 # View work progress
 todo list --category Work
+
 ```
 
 ## 🚀 Roadmap / Future Enhancements
 
-- [ ] Recurring/recurring tasks (daily, weekly, monthly)
-- [ ] Task time tracking
-- [ ] Export to JSON/CSV/iCalendar
-- [ ] Task tags with advanced filtering
-- [ ] Subtasks/nested tasks
-- [ ] Shell completions (bash, zsh, fish)
-- [ ] Config file support (.todorc)
-- [ ] Undo/redo functionality
-- [ ] Task notes/changelog
-- [ ] Multi-user support
-- [ ] Cloud sync (optional)
-- [ ] Web dashboard (optional)
+* [ ] Recurring tasks (daily, weekly, monthly)
+* [ ] Task time tracking
+* [ ] Export to JSON/CSV/iCalendar
+* [ ] Task tags with advanced filtering
+* [ ] Subtasks/nested tasks
+* [ ] Shell completions (bash, zsh, fish)
+* [ ] Config file support (.todorc)
+* [ ] Undo/redo functionality
+* [ ] Task notes/changelog
+* [ ] Multi-user support
+* [ ] Cloud sync (optional)
+* [ ] Web dashboard (optional)
 
 ## 🧪 Development
 
@@ -361,56 +391,65 @@ todo list --category Work
 
 ```bash
 cargo test
+
 ```
 
 ### Format Code
 
 ```bash
 cargo fmt
+
 ```
 
 ### Lint Code
 
 ```bash
 cargo clippy -- -D warnings
+
 ```
 
 ### Build Documentation
 
 ```bash
 cargo doc --open
+
 ```
 
 ### Build Release Binary
 
 ```bash
 cargo build --release -j $(nproc)
+
 ```
 
 ## ⚡ Performance
 
-- **Lightweight:** Minimal memory footprint (~2-5MB)
-- **Fast:** SQLite queries optimized with proper indexing
-- **Responsive:** TUI with 250ms event polling
-- **No external dependencies:** Everything bundled
+* **Lightweight:** Minimal memory footprint (~2-5MB)
+* **Fast:** SQLite queries optimized with proper indexing
+* **Responsive:** TUI with 250ms event polling
+* **No external dependencies:** Everything bundled
 
 ## 🐛 Troubleshooting
 
 ### Database locked error
+
 ```bash
 # Delete corrupted database and start fresh
 rm ~/.local/share/todo/tasks.db
 
 # Or use custom location
 todo --db /tmp/tasks.db add "Test"
+
 ```
 
 ### Terminal rendering issues
-- Ensure terminal supports 256 colors
-- Try exporting: `export TERM=xterm-256color`
-- Update terminal emulator to latest version
+
+* Ensure terminal supports 256 colors
+* Try exporting: `export TERM=xterm-256color`
+* Update terminal emulator to latest version
 
 ### Build errors
+
 ```bash
 # Update Rust
 rustup update
@@ -418,6 +457,7 @@ rustup update
 # Clean build
 cargo clean
 cargo build --release
+
 ```
 
 ## 📝 License
@@ -425,13 +465,14 @@ cargo build --release
 MIT License - Use this project however you like!
 
 ```
-Copyright (c) 2024
+Copyright (c) 2026
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
 "Software"), to deal in the Software without restriction, including
 without limitation the rights to use, copy, modify, merge, publish,
 distribute, sublicense, and/or sell copies of the Software.
+
 ```
 
 ## 🤝 Contributing
@@ -445,16 +486,17 @@ Contributions are very welcome! Here's how:
 5. **Open** a Pull Request
 
 ### Guidelines
-- Follow the existing code style
-- Add tests for new features
-- Update documentation
-- Keep commits atomic and descriptive
+
+* Follow the existing code style
+* Add tests for new features
+* Update documentation
+* Keep commits atomic and descriptive
 
 ## 💬 Support
 
-- **Issues:** Report bugs on GitHub
-- **Discussions:** Ask questions and share ideas
-- **Pull Requests:** Submit improvements
+* **Issues:** Report bugs on GitHub
+* **Discussions:** Ask questions and share ideas
+* **Pull Requests:** Submit improvements
 
 ---
 
@@ -463,3 +505,7 @@ Contributions are very welcome! Here's how:
 Built for productivity. Made for power users.
 
 Happy task managing! 🚀
+
+```
+
+```
